@@ -1,71 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comentários</title>
 
     <!-- Montserrat Font - Google CDN -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <!-- Estilização da página -->
 
-    <!-- url_for(. . .) -> Usando arquivo CSS com o JINJA -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/formulario.css') }}" />
+
 </head>
+
 <body>
 
     <main class="main">
 
-        <div class="main__divs">
+        <div class="main__section main__section--form">
 
             <form class="form" action="/post/comentarios" method="POST">
     
-                <label class="form__label" for="usuario">Usuário</label>
-                <input class="form__input" type="text" name="usuario" placeholder="Exemplo: Lucas Oliveira da Silva" maxlength="150" required>
+                <label class="form__label" for="input-user">Usuário</label>
+                <input class="form__input" type="text" name="input-user" placeholder="Exemplo: Lucas Oliveira da Silva" maxlength="150" required>
     
-                <label class="form__label" for="comentario">Comentário</label>
-                <textarea class="form__textarea" name="comentario" placeholder="Eu sempre assisto e acho muito interessante, É INTERESSANTE!" required></textarea>
+                <label class="form__label" for="input-message">Mensagem</label>
+                <textarea class="form__textarea" name="input-message" placeholder="Eu sempre assisto e acho muito interessante, É INTERESSANTE!" required></textarea>
                 
                 <div class="form__buttons">
-    
                     <button class="form__button form__button--submit" type="submit">Comentar</button>
-                    
                     <button class="form__button form__button--reset" type="reset">Limpar</button>
-                
                 </div>
     
             </form>
-    
+
         </div>
 
-        <div class="main__divs">
+        <div class="main__section main__section--comments">
 
-            <section class="view-comentarios">
+            <section class="comments-container">
 
-                {% for comentario in comentarios %}
+                <h1 class="comments__title">Comentários</h1>
 
-                <article>
+                <div class="comments">
 
-                    <header>
-                        comentario.usuario
-                    </header>
+                    {% for comentario in comentarios %}
+    
+                    <article class="comment">
+    
+                        <header class="comment__header">
+                            <span class="comment__user">{{ comentario.user }}</span>
+                        </header>
+    
+                        <main class="comment__content">
+                            <p class="comment__message">{{ comentario.message }}</p>
+                        </main>
 
-                    <main>
-                        comentario.comentario
-                    </main>
+                        <footer class="comment__footer">
+                            {{ comentario.dt }}
+                        </footer>
+    
+                    </article>
+    
+                    {% endfor %}
+    
+                </div>
 
-                </article>
-
-                {% endfor %}
-
-            </section>
+            </section>            
 
         </div>
 
     </main>
 
 </body>
+
 </html>
