@@ -251,7 +251,7 @@ body
 
     width: 100%;
 
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .comment__date
@@ -262,27 +262,34 @@ body
 
 .comment__actions
 {
+    height: 27px;
+
     display: flex;
+}
+
+.comment__actions > form
+{
+    flex: 1;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 2px 0;
 }
 
 .comment__actions-btn
 {
-    flex: 1;
-
-    height: 27px;
-
-    padding: 2px 0;
+    width: 100%;
 
     border: 0;
 
     cursor: pointer;
 }
 
-.comment__actions-btn img
+.comment__actions-btn > img
 {
     /* Mantendo as proporções da imagem  */
 
-    width: 100%;
     height: 100%;
 
     object-fit: contain;
@@ -295,17 +302,17 @@ body
 
 .comment__like-btn
 {
-    background-color: #28a745;
+    background-color: #6fbf80;
 }
 
 .comment__dislike-btn
 {
-    background-color: #dc3545;
+    background-color: #f98c94;
 }
 
 .comment__delete-btn
 {
-    background-color: #007bff;
+    background-color: #66aaff;
 }
 
 /* Responsividade */

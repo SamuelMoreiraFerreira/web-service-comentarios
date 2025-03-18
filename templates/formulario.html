@@ -72,20 +72,32 @@
 
                         <section class="comment__actions">
 
-                            <button href="" class="comment__like-btn comment__actions-btn">
-                                <img src="{{ url_for('static', filename='images/like-icon.svg') }}" alt="Like Icon" />
-                            </button>
+                            <form action="/post/like/{{ comentario.cod_comentario }}" method="post">
+
+                                <button class="comment__like-btn comment__actions-btn" type="submit">
+
+                                    <img src="{{ url_for('static', filename='images/like-icon.svg') }}" alt="Like Icon" />
+
+                                </button>
+
+                            </form>
                             
-                            <button href="" class="comment__dislike-btn comment__actions-btn">
-                                <img src="{{ url_for('static', filename='images/dislike-icon.svg') }}" alt="Dislike Icon" />
-                            </button>
+                            <form action="/post/dislike/{{ comentario.cod_comentario }}" method="post">
+
+                                <button class="comment__dislike-btn comment__actions-btn" type="submit">
+
+                                    <img src="{{ url_for('static', filename='images/dislike-icon.svg') }}" alt="Dislike Icon" />
+
+                                </button>
+
+                            </form>
 
                             <form action="/post/delete/{{ comentario.cod_comentario }}" method="post">
 
                                 <button class="comment__delete-btn comment__actions-btn" type="submit">
 
                                     <img src="{{ url_for('static', filename='images/delete-icon.svg') }}" alt="Delete Icon" />
-                                    
+
                                 </button> 
 
                             </form>
