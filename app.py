@@ -36,5 +36,12 @@ def post_comentarios():
     else:
 
         return '<a href="/">Erro. Tente Novamente.</a>'
+    
+# Rota para apagar comentários
+    
+@app.route('/post/delete', methods=['POST'])
+def post_delete_comentarios():
+
+    
 
 app.run(debug=True, host='0.0.0.0', port=8080)

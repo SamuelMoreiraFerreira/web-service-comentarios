@@ -6,10 +6,10 @@ class Connection:
 
         return mysql.connector.connect( 
 
-            host='localhost', 
+            host='10.110.134.2', 
             port=3306, 
-            user='root', 
-            password='root', 
-            database='db_feedbacks'
+            user='3ds', 
+            password='banana', 
+            database='db_feedback'
 
         )

@@ -1,4 +1,5 @@
 from data.connectionController import Connection
+import datetime
 
 class Comment:
 
@@ -12,7 +13,7 @@ class Comment:
 
             cursor = conexao_db.cursor()
 
-            cursor.execute("INSERT INTO tb_comentarios (user, message) VALUES (%s, %s);", (user, message))
+            cursor.execute("INSERT INTO tb_comentarios (nome, comentario, data_hora) VALUES (%s, %s, %s);", (user, message, datetime.datetime.now()))
 
             # Confirma a alteração
 
@@ -26,7 +27,28 @@ class Comment:
             return True
 
         except:
+            
+            return False
+        
+    def delete(id):
 
+        try:
+
+            conexao_db = Connection.create()
+
+            cursor = conexao_db.cursor()
+
+            cursor.execute("DELETE FROM tb_comentarios WHERE tb_comentarios.id = %s;", (id))
+
+            conexao_db.commit()
+
+            cursor.close()
+            conexao_db.close()
+
+            return True
+
+        except:
+            
             return False
         
     def get_comentarios():
@@ -35,9 +57,13 @@ class Comment:
 
             conexao_db = Connection.create()
 
+            # dictionary -> Usar o nome do campo ao invés do índice
+
             cursor = conexao_db.cursor(dictionary=True)
 
-            cursor.execute('SELECT user, message, dt FROM tb_comentarios')
+            cursor.execute('SELECT nome, comentario, data_hora FROM tb_comentarios;')
+
+            # fetchall -> Todos os campos retornados do comando
 
             comentarios_lista = cursor.fetchall()
 

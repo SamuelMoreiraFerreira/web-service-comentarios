@@ -55,15 +55,15 @@
                     <article class="comment">
     
                         <header class="comment__header">
-                            <span class="comment__user">{{ comentario.user }}</span>
+                            <span class="comment__user">{{ comentario.nome }}</span>
                         </header>
     
                         <main class="comment__content">
-                            <p class="comment__message">{{ comentario.message }}</p>
+                            <p class="comment__message">{{ comentario.comentario }}</p>
                         </main>
 
                         <footer class="comment__footer">
-                            {{ comentario.dt }}
+                            {{ comentario.data_hora }}
                         </footer>
     
                     </article>
