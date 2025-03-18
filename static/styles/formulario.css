@@ -190,7 +190,7 @@ body
 .comment__container
 {
     max-width: 100%;
-    height: auto;
+    height: fit-content;
 
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -247,12 +247,9 @@ body
 
 .comment__footer
 {
-    width: 100%;
+    text-align: right;
 
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
 
     margin-top: 15px;
 }

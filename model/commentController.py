@@ -38,7 +38,7 @@ class Comment:
 
             cursor = conexao_db.cursor()
 
-            cursor.execute("DELETE FROM tb_comentarios WHERE tb_comentarios.id = %s;", (id))
+            cursor.execute("DELETE FROM tb_comentarios WHERE tb_comentarios.cod_comentario = %s;", (id,))
 
             conexao_db.commit()
 
@@ -61,7 +61,7 @@ class Comment:
 
             cursor = conexao_db.cursor(dictionary=True)
 
-            cursor.execute('SELECT nome, comentario, data_hora FROM tb_comentarios;')
+            cursor.execute('SELECT cod_comentario, nome, comentario, data_hora FROM tb_comentarios;')
 
             # fetchall -> Todos os campos retornados do comando
 
