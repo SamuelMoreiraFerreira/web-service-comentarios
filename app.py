@@ -15,7 +15,7 @@ def login_page():
 # Rota para Login
     
 @app.route('/post/login', methods=['POST'])
-def post_dislike_comentarios(id):
+def post_login_user():
 
     login = request.form.get('input-login')
     password = request.form.get('input-password')
@@ -24,7 +24,7 @@ def post_dislike_comentarios(id):
 
         # Redirecionando de volta
 
-        return redirect('/')
+        return 'Oi'
     
     else:
 
