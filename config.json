@@ -1,0 +1,17 @@
+{
+    "tb_comments": {
+
+        "name": "tb_comentarios",
+
+        "fields": {
+
+            "id": "cod_comentario",
+            "user": "nome",
+            "message": "comentario",
+            "dt": "data_hora",
+            "likes": "curtidas"
+
+        }
+
+    }
+}

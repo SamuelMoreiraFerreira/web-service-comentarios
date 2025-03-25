@@ -4,8 +4,6 @@ from model.commentController import Comment
 
 app = Flask(__name__)
 
-comentarios = []
-
 # Página para cadastrar os comentários
 
 @app.route('/')
@@ -43,6 +41,36 @@ def post_comentarios():
 def post_delete_comentarios(id):
 
     if (Comment.delete(id)):
+
+        # Redirecionando de volta
+
+        return redirect('/')
+    
+    else:
+
+        return '<a href="/">Erro. Tente Novamente.</a>'
+    
+# Rota para like nos comentários
+    
+@app.route('/post/like/<id>', methods=['POST'])
+def post_like_comentarios(id):
+
+    if (Comment.add_like(id)):
+
+        # Redirecionando de volta
+
+        return redirect('/')
+    
+    else:
+
+        return '<a href="/">Erro. Tente Novamente.</a>'
+    
+# Rota para dislike nos comentários
+    
+@app.route('/post/dislike/<id>', methods=['POST'])
+def post_dislike_comentarios(id):
+
+    if (Comment.remove_like(id)):
 
         # Redirecionando de volta
 

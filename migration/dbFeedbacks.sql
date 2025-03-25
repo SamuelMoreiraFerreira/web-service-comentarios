@@ -2,9 +2,10 @@ CREATE DATABASE IF NOT EXISTS db_feedbacks;
 
 USE db_feedbacks;
 
-CREATE TABLE IF NOT EXISTS tb_comentarios (
+CREATE TABLE IF NOT EXISTS tb_comments (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	user VARCHAR(150) NOT NULL,
     message TEXT NOT NULL,
-    dt DATETIME DEFAULT NOW()
+    dt DATETIME DEFAULT NOW(),
+    likes INT DEFAULT 0
 );
