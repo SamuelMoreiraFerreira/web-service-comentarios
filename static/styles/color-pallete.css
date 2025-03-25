@@ -1,0 +1,13 @@
+:root
+{
+    --primary-bg-color: #f4f4f4;
+    --secondary-bg-color: #f9f9f9;
+
+    --blue: #007bff;
+    --green: #28a745;
+    --red: #dc3545;
+
+    --primary-font-color: #333;
+    --secondary-font-color: #555;
+    --tertiary-font-color: #777;
+}

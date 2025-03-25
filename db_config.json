@@ -2,6 +2,9 @@
     "host": "10.110.134.2",
     "port": "3306",
 
+    "user": "3ds",
+    "password": "banana",
+
     "database": "db_feedback",
 
     "tb_comments": {

@@ -3,9 +3,11 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comentários</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Montserrat Font - Google CDN -->
 
@@ -13,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/color-pallete.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}" />
+    
     <!-- Estilização da página -->
 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/formulario.css') }}" />
@@ -27,15 +32,22 @@
 
             <form class="form" action="/post/comentarios" method="POST">
     
+                <!-- Input Usuário -->
+
                 <label class="form__label" for="input-user">Usuário</label>
                 <input class="form__input" type="text" name="input-user" placeholder="Exemplo: Lucas Oliveira da Silva" maxlength="150" required>
+
+                <!-- Input Mensagem -->
     
                 <label class="form__label" for="input-message">Mensagem</label>
                 <textarea class="form__textarea" name="input-message" placeholder="Eu sempre assisto e acho muito interessante, É INTERESSANTE!" required></textarea>
                 
                 <div class="form__buttons">
+
                     <button class="form__button form__button--submit" type="submit">Comentar</button>
+                    
                     <button class="form__button form__button--reset" type="reset">Limpar</button>
+
                 </div>
     
             </form>

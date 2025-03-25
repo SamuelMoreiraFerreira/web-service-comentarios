@@ -16,8 +16,8 @@ class Connection:
 
             host = db_config['host'], 
             port = db_config['port'], 
-            user = '3ds', 
-            password = 'banana', 
+            user = db_config['user'], 
+            password = db_config['password'], 
             database = db_config['database']
 
         )

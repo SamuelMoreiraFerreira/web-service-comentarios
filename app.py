@@ -4,6 +4,13 @@ from model.commentController import Comment
 
 app = Flask(__name__)
 
+# Página de login / cadastro
+
+@app.route('/login')
+def login_page():
+
+    return render_template('login.html')
+
 # Página para cadastrar os comentários
 
 @app.route('/')
