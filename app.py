@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 
 from model.comments_controller import Comment
+from model.users_controller import User
 
 app = Flask(__name__)
 
@@ -10,6 +11,24 @@ app = Flask(__name__)
 def login_page():
 
     return render_template('login.html')
+
+# Rota para Login
+    
+@app.route('/post/login', methods=['POST'])
+def post_dislike_comentarios(id):
+
+    login = request.form.get('input-login')
+    password = request.form.get('input-password')
+
+    if (User.exists(login, password)):
+
+        # Redirecionando de volta
+
+        return redirect('/')
+    
+    else:
+
+        return '<a href="/">Erro. Tente Novamente.</a>'
 
 # Página para cadastrar os comentários
 

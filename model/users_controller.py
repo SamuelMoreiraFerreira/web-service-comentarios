@@ -20,16 +20,16 @@ class User:
 
             cursor = conexao_db.cursor()
 
-            cursor.execute(f'SELECT * FROM {db_config['tb_comments']['name']} WHERE {db_config['tb_comments']['name']}.{db_config['tb_comments']['fields']['id']}', (user, message, datetime.datetime.now()))
+            cursor.execute(f'SELECT * FROM {db_config['tb_users']['name']} WHERE {db_config['tb_users']['name']}.{db_config['tb_users']['fields']['login']} = %s AND  {db_config['tb_users']['name']}.{db_config['tb_users']['fields']['password']} = %s;', (login, password))
 
-            # Confirma a alteração
-
-            conexao_db.commit()
+            user = cursor.fetch()
 
             # Fecha a conexão com o Banco de Dados e o cursor
 
             cursor.close()
             conexao_db.close()
+
+            print(user)
 
             return True
 
