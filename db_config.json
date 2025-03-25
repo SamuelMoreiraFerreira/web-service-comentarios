@@ -1,4 +1,9 @@
 {
+    "host": "10.110.134.2",
+    "port": "3306",
+
+    "database": "db_feedback",
+
     "tb_comments": {
 
         "name": "tb_comentarios",

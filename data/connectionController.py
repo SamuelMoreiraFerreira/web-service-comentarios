@@ -1,15 +1,23 @@
 import mysql.connector
 
+# DB Configuração JSON
+
+import json
+
+with open('db_config.json') as f:
+
+    db_config = json.load(f)
+
 class Connection:
 
     def create():
 
         return mysql.connector.connect( 
 
-            host='10.110.134.2', 
-            port=3306, 
-            user='3ds', 
-            password='banana', 
-            database='db_feedback'
+            host = db_config['host'], 
+            port = db_config['port'], 
+            user = '3ds', 
+            password = 'banana', 
+            database = db_config['database']
 
         )
