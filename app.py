@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect
 
-from model.commentController import Comment
+from model.comments_controller import Comment
 
 app = Flask(__name__)
 

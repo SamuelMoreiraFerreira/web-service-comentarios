@@ -26,25 +26,31 @@
 
 <body>
     
+    <header>
+
+        <h1>Vovó Mafalda</h1>
+
+    </header>
+
     <main>
 
-        <form class="login__form-container">
+        <form class="form-login" action="" method="POST">
 
             <!-- Input Usuário -->
 
-            <label class="form__label" for="input-user">Nome de Usuário</label>
-            <input class="form__input" type="text" name="input-user" placeholder="Lucas Oliveira da Silva" maxlength="150" required>
+            <label class="form-login__label" for="input-user">Nome de Usuário</label>
+            <input class="form-login__input" type="text" name="input-user" placeholder="Lucas Oliveira da Silva" maxlength="150" required>
 
             <!-- Input Senha -->
 
-            <label class="form__label" for="input-password">Senha</label>
-            <input class="form__input" type="password" name="input-password" minlength="8" required>
+            <label class="form-login__label" for="input-password">Senha</label>
+            <input class="form-login__input" type="password" name="input-password" minlength="8" required>
 
-            <div class="form__buttons">
+            <div class="form-login__buttons">
 
-                <button class="form__button form__button--submit" type="submit">Comentar</button>
+                <button class="form-login__button form-login__btn--login" type="submit">Entrar</button>
                 
-                <button class="form__button form__button--reset" type="reset">Limpar</button>
+                <a class="form-login__button" href="/">Cadastrar-se</a>
 
             </div>
 

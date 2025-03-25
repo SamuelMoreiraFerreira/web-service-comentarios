@@ -21,5 +21,20 @@
 
         }
 
+    },
+
+    "tb_users": {
+
+        "name": "tb_usuarios",
+
+        "fields": {
+
+            "id": "",
+            "name": "nome",
+            "login": "login",
+            "password": "senha"
+
+        }
+
     }
 }
