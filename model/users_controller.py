@@ -15,6 +15,8 @@ class User:
 
         try:
 
+            password = sha256(password.encode()).hexdigest()
+
             conexao_db = Connection.create()
 
             # O cursor é responsável por manipular o Banco de Dados
