@@ -54,7 +54,7 @@ def post_register_user():
 @app.route('/')
 def main_page():
 
-    comentarios = Comment.get_comentarios()
+    comentarios = Comment.get_all()
 
     return render_template('formulario.html', comentarios=comentarios)
 
