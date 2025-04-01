@@ -20,11 +20,30 @@ def post_login_user():
     login = request.form.get('input-login')
     password = request.form.get('input-password')
 
-    if (User.exists(login, password)):
+    if User.exists(login, password):
 
         # Redirecionando de volta
 
         return 'Oi'
+    
+    else:
+
+        return '/'
+    
+# Rota para Cadastro
+    
+@app.route('/post/register', methods=['POST'])
+def post_register_user():
+
+    user = request.form.get('input-user')
+    login = request.form.get('input-login')
+    password = request.form.get('input-password')
+
+    if User.register(user, login, password):
+
+        # Redirecionando de volta
+
+        return '/'
     
     else:
 
@@ -49,7 +68,7 @@ def post_comentarios():
     user = request.form.get('input-user')
     message = request.form.get('input-message')
 
-    if (Comment.create(user, message)):
+    if Comment.create(user, message):
 
         # Redirecionando de volta
 
@@ -66,7 +85,7 @@ def post_comentarios():
 @app.route('/post/delete/<id>', methods=['POST'])
 def post_delete_comentarios(id):
 
-    if (Comment.delete(id)):
+    if Comment.delete(id):
 
         # Redirecionando de volta
 
@@ -81,7 +100,7 @@ def post_delete_comentarios(id):
 @app.route('/post/like/<id>', methods=['POST'])
 def post_like_comentarios(id):
 
-    if (Comment.add_like(id)):
+    if Comment.add_like(id):
 
         # Redirecionando de volta
 
@@ -96,7 +115,7 @@ def post_like_comentarios(id):
 @app.route('/post/dislike/<id>', methods=['POST'])
 def post_dislike_comentarios(id):
 
-    if (Comment.remove_like(id)):
+    if Comment.remove_like(id):
 
         # Redirecionando de volta
 
