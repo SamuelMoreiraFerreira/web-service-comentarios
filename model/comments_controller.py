@@ -111,7 +111,7 @@ class Comment:
 
             cursor = conexao_db.cursor(dictionary=True)
 
-            cursor.execute(f'SELECT {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["id"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["user"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["message"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["dt"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["likes"]} FROM {db_config["tb_comments"]["name"]} ORDER BY {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["likes"]};')
+            cursor.execute(f'SELECT {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["id"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["user"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["message"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["dt"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["likes"]} FROM {db_config["tb_comments"]["name"]} ORDER BY {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["likes"]} DESC;')
 
             # fetchall -> Todos os campos retornados do comando
 
