@@ -6,8 +6,8 @@ USE db_feedbacks;
 
 CREATE TABLE IF NOT EXISTS tb_users (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    user_name VARCHAR(150) NOT NULL,
-    login VARCHAR(150) NOT NULL,
+    user_name VARCHAR(50) NOT NULL,
+    login VARCHAR(25) NOT NULL,
     password VARCHAR(30) NOT NULL
 );
 
@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS tb_users (
 
 CREATE TABLE IF NOT EXISTS tb_comments (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	user_id INT NOT NULL,
+	user_id VARCHAR(150) NOT NULL,
     message TEXT NOT NULL,
     dt DATETIME DEFAULT NOW(),
     likes INT DEFAULT 0
