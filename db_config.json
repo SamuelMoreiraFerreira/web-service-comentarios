@@ -29,8 +29,8 @@
 
         "fields": {
 
-            "id": "",
-            "name": "nome",
+            "id": "id",
+            "user_name": "nome",
             "login": "login",
             "password": "senha"
 
