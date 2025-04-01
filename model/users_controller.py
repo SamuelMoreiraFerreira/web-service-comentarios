@@ -1,4 +1,5 @@
 from data.connection_controller import Connection
+from hashlib import sha256
 
 # DB Configuração JSON
 
@@ -40,6 +41,10 @@ class User:
     def register(user, login, password):
 
         try:
+
+            # Criptogrando a senha em sha256
+
+            password = sha256(password.encode()).hexdigest()
 
             conexao_db = Connection.create()
 
