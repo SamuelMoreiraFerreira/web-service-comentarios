@@ -23,7 +23,7 @@ class User:
 
             cursor = conexao_db.cursor()
 
-            cursor.execute(f'SELECT * FROM {db_config["tb_users"]["name"]} WHERE {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]} = %s AND BINARY {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["password"]} = %s;', (login, password))
+            cursor.execute(f'SELECT * FROM {db_config["tb_users"]["name"]} WHERE BINARY {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]} = %s AND BINARY {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["password"]} = %s;', (login, password))
 
             user = cursor.fetch()
 
