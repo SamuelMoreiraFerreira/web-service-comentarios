@@ -30,7 +30,7 @@
         "fields": {
 
             "id": "id",
-            "user_name": "nome",
+            "username": "nome",
             "login": "login",
             "password": "senha"
 

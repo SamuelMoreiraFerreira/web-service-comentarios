@@ -72,8 +72,6 @@ def post_comentarios():
 
         # Redirecionando de volta
 
-        Comment.get_comentarios()
-
         return redirect('/')
     
     else:

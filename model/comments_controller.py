@@ -21,7 +21,7 @@ class Comment:
 
             cursor = conexao_db.cursor()
 
-            cursor.execute(f'INSERT INTO {db_config["tb_comments"]["name"]} ({db_config["tb_comments"]["fields"]["user"]}, {db_config["tb_comments"]["fields"]["user"]}, {db_config["tb_comments"]["fields"]["dt"]}) VALUES (%s, %s, %s);', (user, message, datetime.datetime.now()))
+            cursor.execute(f'INSERT INTO {db_config["tb_comments"]["name"]} ({db_config["tb_comments"]["fields"]["user"]}, {db_config["tb_comments"]["fields"]["message"]}, {db_config["tb_comments"]["fields"]["dt"]}) VALUES (%s, %s, %s);', (user, message, datetime.datetime.now()))
 
             # Confirma a alteração
 
