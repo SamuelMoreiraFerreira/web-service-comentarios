@@ -1,14 +1,37 @@
-body
+.page-title
+{
+    text-align: center;
+}
+
+.main-container
 {
     width: 100vw;
     height: 100vh;
 
+    display: flex;
+
     background-color: var(--primary-bg-color);
+}
+
+.form-login__section,
+.form-register__section
+{
+    flex: 1;
+
+    display: flex;
+
+    flex-flow: column wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 5em;
 }
 
 /* Formulário */
 
-.form-login
+.form-login,
+.form-register
 {
     width: 100%;
     max-width: 500px;
@@ -24,7 +47,8 @@ body
 
 /* Labels */
 
-.form-login__label 
+.form-login__label,
+.form-register__label
 {
     display: block;
 
@@ -36,7 +60,8 @@ body
 
 /* Input de Texto */
 
-.form-login__input
+.form-login__input,
+.form-register__input
 {
     width: 100%;
 
@@ -60,17 +85,12 @@ body
     outline: none;
 }
 
-.form-login__buttons 
+.form-login__btn--login,
+.form-register__btn--register
 {
     width: 100%;
 
-    display: flex;
-    justify-content: space-between;
-}
-
-.form-login__button
-{
-    width: 48%;
+    margin-top: 16px;
 
     padding: 15px 0;
 
@@ -78,6 +98,9 @@ body
     border-radius: 4px;
 
     font-size: 1rem;
+    font-weight: 600;
+
+    color: #fff;
 
     text-align: center;
 
@@ -86,15 +109,18 @@ body
     transition: filter 0.3s;
 }
 
-.form-login__btn--login
-{
-    background-color: var(--blue);
-
-    font-weight: 600;
-    color: #fff;
-}
-
-.form-login__btn--login:hover
+.form-login__btn--login:hover,
+.form-register__btn--register:hover
 {
     filter: brightness(0.9);
+}
+
+.form-login__btn--login 
+{
+    background-color: var(--blue);
+}
+
+.form-register__btn--register 
+{
+    background-color: var(--green);
 }

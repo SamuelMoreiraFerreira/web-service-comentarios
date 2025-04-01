@@ -26,29 +26,56 @@
 
 <body>
 
-    <main>
+    <main class="main-container">
 
-        <form class="form-login" action="/post/login" method="POST">
+        <section class="form-login__section">
 
-            <!-- Input Usuário -->
+            <h2 class="page-title">Entrar</h2>
+            
+            <form class="form-login" action="/post/login" method="POST">
 
-            <label class="form-login__label" for="input-login">Login</label>
-            <input class="form-login__input" type="text" name="input-login" placeholder="Lucas Oliveira da Silva" maxlength="150" required>
+                <!-- Input Login -->
+    
+                <label class="form-login__label" for="input-login">Login</label>
+                <input class="form-login__input" type="text" name="input-login" placeholder="Lucas Oliveira da Silva" maxlength="150" required>
+    
+                <!-- Input Senha -->
+    
+                <label class="form-login__label" for="input-password">Senha</label>
+                <input class="form-login__input" type="password" name="input-password" minlength="8" required>
+    
+                <button class="form-login__btn--login" type="submit">Entrar</button>
+    
+            </form>
 
-            <!-- Input Senha -->
+        </section>
 
-            <label class="form-login__label" for="input-password">Senha</label>
-            <input class="form-login__input" type="password" name="input-password" minlength="8" required>
+        <section class="form-register__section">
 
-            <div class="form-login__buttons">
+            <h2 class="page-title">Cadastro</h2>
+            
+            <form class="form-register" action="/post/register" method="POST">
 
-                <button class="form-login__button form-login__btn--login" type="submit">Entrar</button>
-                
-                <a class="form-login__button" href="/">Cadastrar-se</a>
+                <!-- Input Usuário -->
+    
+                <label class="form-register__label" for="input-user">Usuário</label>
+                <input class="form-register__input" type="text" name="input-user" placeholder="Lucas Oliveira da Silva" maxlength="150" required>
 
-            </div>
+                <!-- Input Login -->
+    
+                <label class="form-register__label" for="input-login">Login</label>
+                <input class="form-register__input" type="text" name="input-login" placeholder="Lucas Oliveira da Silva" maxlength="150" required>
+    
+                <!-- Input Senha -->
+    
+                <label class="form-register__label" for="input-password">Senha</label>
+                <input class="form-register__input" type="password" name="input-password" minlength="8" required>
+    
+                <button class="form-register__btn--register" type="submit">Cadastrar</button>
+    
+            </form>
 
-        </form>
+        </section>
 
     </main>
 
