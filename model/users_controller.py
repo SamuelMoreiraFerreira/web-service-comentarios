@@ -36,3 +36,24 @@ class User:
         except:
             
             return False
+        
+    def register(user, login, password):
+
+        try:
+
+            conexao_db = Connection.create()
+
+            cursor = conexao_db.cursor()
+
+            cursor.execute(f'INSERT INTO {db_config["tb_users"]["name"]} ({db_config["tb_users"]["name"]}{db_config["tb_users"]["fields"]["user_name"]}, {db_config["tb_users"]["name"]}{db_config["tb_users"]["fields"]["login"]}, {db_config["tb_users"]["name"]}{db_config["tb_users"]["fields"]["password"]}) VALUES (%s, %s, %s)', (user, login, password))
+
+            conexao_db.commit()
+
+            cursor.close()
+            conexao_db.close()
+
+            return True
+
+        except:
+            
+            return False
