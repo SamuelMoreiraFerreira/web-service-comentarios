@@ -101,7 +101,7 @@ class Comment:
             
             return False
         
-    def get_comentarios():
+    def get_all():
 
         try:
 
