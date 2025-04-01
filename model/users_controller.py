@@ -47,8 +47,6 @@ class User:
 
             cursor.execute(f'INSERT INTO {db_config["tb_users"]["name"]} ({db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["username"]}, {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]}, {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["password"]}) VALUES (%s, %s, %s);', (user, login, password))
 
-            #cursor.execute(f'INSERT INTO {db_config["tb_users"]["name"]} ({db_config["tb_users"]["name"]}{db_config["tb_users"]["fields"]["user_name"]}, {db_config["tb_users"]["name"]}{db_config["tb_users"]["fields"]["login"]}, {db_config["tb_users"]["name"]}{db_config["tb_users"]["fields"]["password"]}) VALUES (%s, %s, %s);', (user, login, password))
-
             conexao_db.commit()
 
             cursor.close()
