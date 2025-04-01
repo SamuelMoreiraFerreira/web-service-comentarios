@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS tb_users (
     id INT PRIMARY KEY AUTO_INCREMENT,
     username VARCHAR(50) NOT NULL,
     login VARCHAR(25) NOT NULL,
-    password VARCHAR(30) NOT NULL
+    password TEXT NOT NULL,
+    salt_password VARCHAR(255) NOT NULL
 );
 
 -- TABELA COMENTÁRIOS
@@ -20,3 +21,21 @@ CREATE TABLE IF NOT EXISTS tb_comments (
     dt DATETIME DEFAULT NOW(),
     likes INT DEFAULT 0
 );
+
+-- TRIGGER CRIPTOGRAFIA
+
+DELIMITER $$
+
+CREATE TRIGGER tg_tbUsers_Insert 
+BEFORE INSERT
+ON tb_users
+FOR EACH ROW
+BEGIN
+
+    SET NEW.salt_password = UUID();
+
+    SET NEW.password = SHA2(CONCAT(NEW.password, NEW.salt_password), 256);
+
+END $$
+
+DELIMITER ;
