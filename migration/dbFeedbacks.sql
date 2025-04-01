@@ -6,7 +6,8 @@ USE db_feedbacks;
 
 CREATE TABLE IF NOT EXISTS tb_users (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(150) NOT NULL,
+    user_name VARCHAR(150) NOT NULL,
+    login VARCHAR(150) NOT NULL,
     password VARCHAR(30) NOT NULL
 );
 
