@@ -1,4 +1,4 @@
-from data.connectionController import Connection
+from data.connection_controller import Connection
 
 # DB Configuração JSON
 
