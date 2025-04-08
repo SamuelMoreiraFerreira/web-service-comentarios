@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 # Página de login / cadastro
 
-@app.route('/login')
+@app.route('/')
 def login_page():
 
     return render_template('login.html')
@@ -22,28 +22,24 @@ def post_login_user():
 
     if User.exists(login, password):
 
-        # Redirecionando de volta
-
-        return 'Oi'
+        return redirect('/comments')
     
     else:
 
-        return '/'
+        return redirect('/')
     
 # Rota para Cadastro
     
 @app.route('/post/register', methods=['POST'])
 def post_register_user():
 
-    user = request.form.get('input-user')
+    username = request.form.get('input-username')
     login = request.form.get('input-login')
     password = request.form.get('input-password')
 
-    if User.register(user, login, password):
+    if User.register(username, login, password):
 
-        # Redirecionando de volta
-
-        return '/'
+        return redirect('/comments')
     
     else:
 
@@ -51,12 +47,12 @@ def post_register_user():
 
 # Página para cadastrar os comentários
 
-@app.route('/')
+@app.route('/comments')
 def main_page():
 
-    comentarios = Comment.get_all()
-
-    return render_template('formulario.html', comentarios=comentarios)
+    return render_template('formulario.html', 
+        comentarios=Comment.get_all()
+    )
 
 # Rota que receberá o formulário com o comentário
 
@@ -72,11 +68,11 @@ def post_comentarios():
 
         # Redirecionando de volta
 
-        return redirect('/')
+        return redirect('/comments')
     
     else:
 
-        return '<a href="/">Erro. Tente Novamente.</a>'
+        return '<a href="/comments">Erro. Tente Novamente.</a>'
     
 # Rota para apagar comentários
     
@@ -85,13 +81,11 @@ def post_delete_comentarios(id):
 
     if Comment.delete(id):
 
-        # Redirecionando de volta
-
-        return redirect('/')
+        return redirect('/comments')
     
     else:
 
-        return '<a href="/">Erro. Tente Novamente.</a>'
+        return '<a href="/comments">Erro. Tente Novamente.</a>'
     
 # Rota para like nos comentários
     
@@ -100,13 +94,11 @@ def post_like_comentarios(id):
 
     if Comment.add_like(id):
 
-        # Redirecionando de volta
-
-        return redirect('/')
+        return redirect('/comments')
     
     else:
 
-        return '<a href="/">Erro. Tente Novamente.</a>'
+        return '<a href="/comments">Erro. Tente Novamente.</a>'
     
 # Rota para dislike nos comentários
     
@@ -115,12 +107,10 @@ def post_dislike_comentarios(id):
 
     if Comment.remove_like(id):
 
-        # Redirecionando de volta
-
-        return redirect('/')
+        return redirect('/comments')
     
     else:
 
-        return '<a href="/">Erro. Tente Novamente.</a>'
+        return '<a href="/comments">Erro. Tente Novamente.</a>'
  
 app.run(debug=True, host='0.0.0.0', port=8080)

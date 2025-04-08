@@ -40,7 +40,7 @@ class User:
             
             return False
         
-    def register(user, login, password):
+    def register(username, login, password):
 
         try:
 
@@ -52,7 +52,7 @@ class User:
 
             cursor = conexao_db.cursor()
 
-            cursor.execute(f'INSERT INTO {db_config["tb_users"]["name"]} ({db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["username"]}, {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]}, {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["password"]}) VALUES (%s, %s, %s);', (user, login, password))
+            cursor.execute(f'INSERT INTO {db_config["tb_users"]["name"]} ({db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["username"]}, {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]}, {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["password"]}) VALUES (%s, %s, %s);', (username, login, password))
 
             conexao_db.commit()
 
