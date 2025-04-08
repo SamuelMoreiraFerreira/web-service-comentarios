@@ -1,5 +1,6 @@
 from data.connection_controller import Connection
 from hashlib import sha256
+from flask import session
 
 # DB Configuração JSON
 
@@ -64,3 +65,13 @@ class User:
         except:
             
             return False
+        
+    def create_session(login):
+        
+        session['login'] = login;
+        
+    def logout():
+        
+        # Limpando os dados da sessão
+        
+        session.clear()

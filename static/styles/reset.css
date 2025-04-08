@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+
 * 
 {
     /* Reset */
@@ -7,8 +9,9 @@
     box-sizing: border-box;
     color: inherit;
     text-decoration: none;
+    border: 0;
 
     /* Fonte Padrão */
 
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Sora', sans-serif;
 }

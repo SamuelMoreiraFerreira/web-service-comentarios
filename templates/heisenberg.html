@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>Breaking News</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}" />
+
+    <style>
+        body 
+        {
+            width: 100vw;
+            height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heisenberg-img
+        {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <img class="heisenberg-img" src="{{ url_for('static', filename='images/heisenberg.webp') }}" alt="Heisenberg" />
+</body>
+
+</html>

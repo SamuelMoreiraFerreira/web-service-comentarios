@@ -1,126 +1,230 @@
-.page-title
-{
-    text-align: center;
-}
-
-.main-container
+body 
 {
     width: 100vw;
     height: 100vh;
-
-    display: flex;
-
-    background-color: var(--primary-bg-color);
 }
 
-.form-login__section,
-.form-register__section
+/* Header */
+
+.page-header 
 {
-    flex: 1;
+    width: 100%;
+    height: 12.5vh;
+
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background-color: var(--gold-yellow);
+
+    color: #1A1A1A;
+}
+
+.page-header__logo img 
+{
+    width: auto;
+    max-height: 100%;
+
+    padding: 0.5vh 0;
+
+    object-fit: cover;
+}
+
+.page-header__menu-links 
+{
+    height: 100%;
 
     display: flex;
 
-    flex-flow: column wrap;
+    list-style: none;
 
-    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.page-header__menu-links > li:hover
+{
+    background-color: #E6B422;
+}
+
+.page-header__menu-links a
+{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
     align-items: center;
 
-    gap: 5em;
+    padding: 0 1.5em;
 }
 
-/* Formulário */
+/* Main */
 
-.form-login,
+.page-main 
+{
+    position: relative;
+
+    width: 100%;
+    height: 87.5vh;
+
+    display: flex;
+
+    padding: 5% 2.5%;
+
+    background-color: var(--dark-theme-bg) ;
+
+    color: #FFF;
+}
+
+.page-main__read-more
+{
+    position: absolute;
+    bottom: 0;
+}
+
+.form__container
+{
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 2.5%;
+
+    padding: 2rem;
+
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 12px;
+
+    background-color: #1E1E1E;
+}
+
+.form-login
+{
+    border-color: var(--pollos-red);
+}
+
 .form-register
 {
-    width: 100%;
-    max-width: 500px;
-
-    padding: 20px;
-
-    border-radius: 8px;
-
-    background-color: #fff;
-
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: var(--fiery-orange);
 }
 
-/* Labels */
-
-.form-login__label,
-.form-register__label
+.form__title
 {
-    display: block;
+    margin-bottom: 2rem;
 
-    margin: 10px 0 15px 0;
+    color: #c2c2c2;
 
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-/* Input de Texto */
-
-.form-login__input,
-.form-register__input
-{
-    width: 100%;
-
-    margin-bottom: 16px;
-
-    padding: 12px;
-
-    border: 1px solid #ccc;
-    border-radius: 4px;
-
-    font-size: 1rem;
-    line-height: 2em;
-
-    resize: vertical;
-}
-
-.form-login__input:focus
-{
-    border-color: var(--blue);
-
-    outline: none;
-}
-
-.form-login__btn--login,
-.form-register__btn--register
-{
-    width: 100%;
-
-    margin-top: 16px;
-
-    padding: 15px 0;
-
-    border: none;
-    border-radius: 4px;
-
-    font-size: 1rem;
-    font-weight: 600;
-
-    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
 
     text-align: center;
+}
+
+.form__input 
+{
+    width: 100%;    
+
+    margin-bottom: 1.25rem;
+
+    padding: 1.25rem 1rem;
+
+    border: 1px solid #424242;
+    border-radius: 6px;
+
+    background-color: #2D2D2D;
+
+    font-size: 14px;
+}
+
+.form__input::placeholder
+{
+    color: #E0E0E0;
+}
+
+.form__keep-session
+{
+    display: flex;
+    gap: 10px;
+}
+
+.form__checkbox 
+{
+    width: 16px;
+    height: 16px;
+
+    accent-color: var(--pollos-red);
+
+    cursor: pointer;
+}
+  
+.form__label 
+{
+    color: #C2C2C2;
+    
+    display: flex;
+    align-items: center;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+  
+.form__checkbox:hover 
+{
+    opacity: 0.8;
+}
+
+.form__btn-login,
+.form__btn-register
+{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 15%;
+
+    color: #121212;
+
+    font-weight: 800;
+    text-transform: uppercase;
+
+    border: none;
+    border-radius: 0 0 12px 12px;
 
     cursor: pointer;
 
-    transition: filter 0.3s;
+    transition: filter 0.3s ease;
 }
 
-.form-login__btn--login:hover,
-.form-register__btn--register:hover
+.form__btn-login:hover,
+.form__btn-register:hover
 {
-    filter: brightness(0.9);
+    filter: brightness(0.8);
 }
 
-.form-login__btn--login 
+.form__btn-login
 {
-    background-color: var(--blue);
+    background-color: var(--pollos-red);
 }
 
-.form-register__btn--register 
+.form__btn-register
 {
-    background-color: var(--green);
+    background-color: var(--fiery-orange);
+}
+
+@media (max-width: 600px) {
+
+    .page-header__logo
+    {
+        display: none;
+    }
+
 }

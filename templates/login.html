@@ -8,12 +8,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Montserrat Font - Google CDN -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/color-pallete.css') }}" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}" />
@@ -26,56 +20,106 @@
 
 <body>
 
-    <main class="main-container">
+    <header class="page-header">
 
-        <section class="form-login__section">
+        <nav class="page-header__nav">
 
-            <h2 class="page-title">Entrar</h2>
-            
-            <form class="form-login" action="/post/login" method="POST">
+            <ul class="page-header__menu-links">
+
+                <li><a href="#">Entrar</a></li>
+
+                <li><a href="#" 
+                    {% if not is_login %}
+
+                    aria-disabled="true"
+
+                    {% endif %}
+
+                    aria-disabled="true"
+                >Comentários</a></li>
+
+                <li><a href="#">Doações</a></li>
+
+            </ul>
+
+        </nav>
+
+        <a class="page-header__logo" href="/">
+            <img src="{{ url_for('static', filename='images/los-pollos-hermanos.png') }}" alt="Logo" />
+        </a>
+
+        {% if is_login %}
+
+        <a class="page-header__btn-logout">Sair</a>
+
+        {% endif %}
+
+    </header>
+
+    <main class="page-main">
+
+        <!-- Entrar -->
+
+        <section class="form__container form-login">
+
+            <span class="form__title">Sem meias cautelas...</span>
+
+            <form class="form" action="/post/register" method="POST">
 
                 <!-- Input Login -->
     
-                <label class="form-login__label" for="input-login">Login</label>
-                <input class="form-login__input" type="text" name="input-login" placeholder="Lucas Oliveira da Silva" maxlength="25" required>
+                <input class="form__input" type="text" name="input-login" placeholder="Email" maxlength="25" required>
     
                 <!-- Input Senha -->
     
-                <label class="form-login__label" for="input-password">Senha</label>
-                <input class="form-login__input" type="password" name="input-password" minlength="8" required>
+                <input class="form__input" type="password" name="input-password" placeholder="Senha" minlength="8" required>
+
+                <!-- Manter Sessão -->
+
+                <div class="form__keep-session">
+                    <input class="form__checkbox" type="checkbox" id="yes" name="keep-session" value="yes">
+                    <label class="form__label" for="keep-session">Manter sessão ativa</label>
+                </div>
     
-                <button class="form-login__btn--login" type="submit">Entrar</button>
+                <!-- Botão Login -->
+    
+                <button class="form__btn-login" type="submit">Entrar</button>
     
             </form>
 
         </section>
 
-        <section class="form-register__section">
+        <!-- Cadastro -->
 
-            <h2 class="page-title">Cadastro</h2>
-            
-            <form class="form-register" action="/post/register" method="POST">
+        <section class="form__container form-register">
 
-                <!-- Input Usuário -->
-    
-                <label class="form-register__label" for="input-user">Usuário</label>
-                <input class="form-register__input" type="text" name="input-user" placeholder="Lucas Oliveira da Silva" maxlength="50" required>
+            <span class="form__title">Ainda não é uma mula?</span>
+
+            <hr/>
+
+            <form class="form" action="/post/register" method="POST">
 
                 <!-- Input Login -->
     
-                <label class="form-register__label" for="input-login">Login</label>
-                <input class="form-register__input" type="text" name="input-login" placeholder="Lucas Oliveira da Silva" maxlength="25" required>
+                <input class="form__input" type="text" name="input-login" placeholder="Email" maxlength="25" required>
+
+                <!-- Input Username -->
+    
+                <input class="form__input" type="text" name="input-password" placeholder="Usuário" maxlength="50" required>
     
                 <!-- Input Senha -->
     
-                <label class="form-register__label" for="input-password">Senha</label>
-                <input class="form-register__input" type="password" name="input-password" minlength="8" required>
+                <input class="form__input" type="password" name="input-password" placeholder="Senha" minlength="8" required>
     
-                <button class="form-register__btn--register" type="submit">Cadastrar</button>
+                <!-- Botão Cadastrar -->
+    
+                <button class="form__btn-register" type="submit">Cadastre-se</button>
     
             </form>
 
         </section>
+
+        <span class="page-main__read-more">Leia Mais</span>
 
     </main>
 

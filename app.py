@@ -1,16 +1,18 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 
 from model.comments_controller import Comment
 from model.users_controller import User
 
 app = Flask(__name__)
 
+app.secret_key = 'AlexStocco'
+
 # Página de login / cadastro
 
 @app.route('/')
 def login_page():
 
-    return render_template('login.html')
+    return render_template('login.html', is_login=('login' in session))
 
 # Rota para Login
     
@@ -21,6 +23,8 @@ def post_login_user():
     password = request.form.get('input-password')
 
     if User.exists(login, password):
+
+        session['login'] = login;
 
         return redirect('/comments')
     
@@ -45,14 +49,29 @@ def post_register_user():
 
         return '<a href="/">Erro. Tente Novamente.</a>'
 
+# Página para Logout
+
+@app.route('/logout')
+def logout():
+    
+    User.logout()
+    
+    return redirect('/')
+
 # Página para cadastrar os comentários
 
 @app.route('/comments')
 def main_page():
 
-    return render_template('formulario.html', 
-        comentarios=Comment.get_all()
-    )
+    if ('usuario' in session):
+        
+        return render_template('formulario.html', 
+            comentarios=Comment.get_all()
+        )
+        
+    else:
+        
+        return redirect('/')
 
 # Rota que receberá o formulário com o comentário
 
@@ -71,7 +90,7 @@ def post_comentarios():
         return redirect('/comments')
     
     else:
-
+        
         return '<a href="/comments">Erro. Tente Novamente.</a>'
     
 # Rota para apagar comentários
@@ -112,5 +131,14 @@ def post_dislike_comentarios(id):
     else:
 
         return '<a href="/comments">Erro. Tente Novamente.</a>'
- 
-app.run(debug=True, host='0.0.0.0', port=8080)
+    
+# Heisenberg...
+
+@app.route('/heisenberg')
+def heisenberg_page():
+    
+    return render_template('heisenberg.html')
+
+if __name__ == '__main__':
+    
+    app.run(debug=True, host='0.0.0.0', port=8080)
