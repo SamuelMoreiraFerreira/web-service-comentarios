@@ -60,11 +60,11 @@
 
         <!-- Entrar -->
 
-        <section class="form__container form-login">
+        <form class="form__container form-login" action="/post/register" method="POST">
 
-            <span class="form__title">Sem meias cautelas...</span>
+            <div class="form__group">
 
-            <form class="form" action="/post/register" method="POST">
+                <span class="form__title">Sem meias cautelas...</span>
 
                 <!-- Input Login -->
     
@@ -80,24 +80,22 @@
                     <input class="form__checkbox" type="checkbox" id="yes" name="keep-session" value="yes">
                     <label class="form__label" for="keep-session">Manter sessão ativa</label>
                 </div>
-    
-                <!-- Botão Login -->
-    
-                <button class="form__btn-login" type="submit">Entrar</button>
-    
-            </form>
 
-        </section>
+            </div>
+
+            <!-- Botão Login -->
+
+            <button class="form__btn-login" type="submit">Entrar</button>
+
+        </form>
 
         <!-- Cadastro -->
 
-        <section class="form__container form-register">
+        <form class="form__container form-register" action="/post/register" method="POST">
 
-            <span class="form__title">Ainda não é uma mula?</span>
+            <div class="form__group">
 
-            <hr/>
-
-            <form class="form" action="/post/register" method="POST">
+                <span class="form__title">Ainda não é uma mula?</span>
 
                 <!-- Input Login -->
     
@@ -105,19 +103,19 @@
 
                 <!-- Input Username -->
     
-                <input class="form__input" type="text" name="input-password" placeholder="Usuário" maxlength="50" required>
+                <input class="form__input" type="text" name="input-username" placeholder="Usuário" maxlength="50" required>
     
                 <!-- Input Senha -->
     
                 <input class="form__input" type="password" name="input-password" placeholder="Senha" minlength="8" required>
-    
-                <!-- Botão Cadastrar -->
-    
-                <button class="form__btn-register" type="submit">Cadastre-se</button>
-    
-            </form>
+            
+            </div>
 
-        </section>
+            <!-- Botão Cadastrar -->
+
+            <button class="form__btn-register" type="submit">Cadastre-se</button>
+
+        </form>
 
         <span class="page-main__read-more">Leia Mais</span>
 

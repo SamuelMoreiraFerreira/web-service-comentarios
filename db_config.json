@@ -1,23 +1,23 @@
 {
-    "host": "10.110.134.2",
+    "host": "localhost",
     "port": "3306",
 
-    "user": "3ds",
-    "password": "banana",
+    "user": "root",
+    "password": "root",
 
-    "database": "db_feedback",
+    "database": "db_feedbacks",
 
     "tb_comments": {
 
-        "name": "tb_comentarios",
+        "name": "tb_comments",
 
         "fields": {
 
-            "id": "cod_comentario",
-            "user": "nome",
-            "message": "comentario",
-            "dt": "data_hora",
-            "likes": "curtidas"
+            "id": "comment_id",
+            "user": "user_login",
+            "message": "message",
+            "dt": "date",
+            "likes": "likes"
 
         }
 
@@ -25,14 +25,14 @@
 
     "tb_users": {
 
-        "name": "tb_usuarios",
+        "name": "tb_users",
 
         "fields": {
 
-            "id": "id",
-            "username": "nome",
+            "username": "username",
             "login": "login",
-            "password": "senha"
+            "password": "password",
+            "salt_password": "salt_password"
 
         }
 

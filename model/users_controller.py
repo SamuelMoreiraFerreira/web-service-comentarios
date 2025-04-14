@@ -16,17 +16,21 @@ class User:
 
         try:
 
-            password = sha256(password.encode()).hexdigest()
-
             conexao_db = Connection.create()
 
             # O cursor é responsável por manipular o Banco de Dados
 
             cursor = conexao_db.cursor()
 
+            cursor.execute(f'SELECT * FROM {db_config["tb_users"]["name"]} WHERE BINARY {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]} = %s;', (login,))
+
+            salt_password = cursor.fetchone()[db_config["tb_users"]["fields"]["salt_password"]]
+
+            password = sha256((password + salt_password).encode()).hexdigest()
+
             cursor.execute(f'SELECT * FROM {db_config["tb_users"]["name"]} WHERE BINARY {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]} = %s AND BINARY {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["password"]} = %s;', (login, password))
 
-            user = cursor.fetch()
+            user = cursor.fetchone()
 
             # Fecha a conexão com o Banco de Dados e o cursor
 
@@ -47,8 +51,6 @@ class User:
 
             # Criptogrando a senha em sha256
 
-            password = sha256(password.encode()).hexdigest()
-
             conexao_db = Connection.create()
 
             cursor = conexao_db.cursor()
@@ -68,7 +70,7 @@ class User:
         
     def create_session(login):
         
-        session['login'] = login;
+        session['login'] = login
         
     def logout():
         
