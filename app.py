@@ -12,7 +12,7 @@ app.secret_key = 'AlexStocco'
 @app.route('/')
 def login_page():
 
-    return render_template('login.html', is_login=('login' in session))
+    return render_template('home_page.html', is_login=('login' in session))
 
 # Rota para Login
     
@@ -65,14 +65,14 @@ def main_page():
 
     if ('login' in session):
         
-        return render_template('formulario.html', 
+        return render_template('comments_page.html', 
             comentarios=Comment.get_all()
         )
         
     else:
         
         return redirect('/')
-    1
+    
 # Rota que receberá o formulário com o comentário
 
 @app.route('/post/comentarios', methods=['POST'])
@@ -137,7 +137,7 @@ def post_dislike_comentarios(id):
 @app.route('/heisenberg')
 def heisenberg_page():
     
-    return render_template('heisenberg.html')
+    return render_template('heisenberg_page.html')
 
 if __name__ == '__main__':
     
