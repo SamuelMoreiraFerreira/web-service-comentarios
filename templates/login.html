@@ -44,15 +44,19 @@
 
         </nav>
 
-        <a class="page-header__logo" href="/">
-            <img src="{{ url_for('static', filename='images/los-pollos-hermanos.png') }}" alt="Logo" />
-        </a>
+        <div>
+            
+            <a class="page-header__logo" href="/">
+                <img src="{{ url_for('static', filename='images/los-pollos-hermanos.png') }}" alt="Logo" />
+            </a>
+    
+            {% if is_login %}
+    
+            <a class="page-header__btn-logout" href="/logout">Sair</a>
+    
+            {% endif %}
 
-        {% if is_login %}
-
-        <a class="page-header__btn-logout">Sair</a>
-
-        {% endif %}
+        </div>
 
     </header>
 
@@ -60,7 +64,7 @@
 
         <!-- Entrar -->
 
-        <form class="form__container form-login" action="/post/register" method="POST">
+        <form class="form__container form-login" action="/post/login" method="POST">
 
             <div class="form__group">
 

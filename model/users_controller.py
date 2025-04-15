@@ -20,26 +20,30 @@ class User:
 
             # O cursor é responsável por manipular o Banco de Dados
 
-            cursor = conexao_db.cursor()
+            cursor = conexao_db.cursor(dictionary=True)
 
-            cursor.execute(f'SELECT * FROM {db_config["tb_users"]["name"]} WHERE BINARY {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]} = %s;', (login,))
-
-            salt_password = cursor.fetchone()[db_config["tb_users"]["fields"]["salt_password"]]
-
-            password = sha256((password + salt_password).encode()).hexdigest()
-
-            cursor.execute(f'SELECT * FROM {db_config["tb_users"]["name"]} WHERE BINARY {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]} = %s AND BINARY {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["password"]} = %s;', (login, password))
+            cursor.execute(f'SELECT {db_config["tb_users"]["fields"]["password"]}, {db_config["tb_users"]["fields"]["salt_password"]} FROM {db_config["tb_users"]["name"]} WHERE {db_config["tb_users"]["name"]}.{db_config["tb_users"]["fields"]["login"]} = %s;', (login,))
 
             user = cursor.fetchone()
+
+            print(user)
+
+            print(sha256((password + user[db_config["tb_users"]["fields"]["salt_password"]]).encode()).hexdigest())
 
             # Fecha a conexão com o Banco de Dados e o cursor
 
             cursor.close()
             conexao_db.close()
 
-            print(user)
+            # Criptografa a senha inserida pelo usuário com o salt e verifica se corresponde à armazenada relacionada a conta
 
-            return True
+            if (not user or sha256((password + user[db_config["tb_users"]["fields"]["salt_password"]]).encode()).hexdigest() == user[db_config["tb_users"]["fields"]["password"]]):
+
+                return True
+            
+            else:
+
+                return False
 
         except:
             
@@ -48,8 +52,6 @@ class User:
     def register(username, login, password):
 
         try:
-
-            # Criptogrando a senha em sha256
 
             conexao_db = Connection.create()
 

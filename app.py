@@ -24,7 +24,7 @@ def post_login_user():
 
     if User.exists(login, password):
 
-        session['login'] = login;
+        session['login'] = login
 
         return redirect('/comments')
     
@@ -63,7 +63,7 @@ def logout():
 @app.route('/comments')
 def main_page():
 
-    if ('usuario' in session):
+    if ('login' in session):
         
         return render_template('formulario.html', 
             comentarios=Comment.get_all()
@@ -72,7 +72,7 @@ def main_page():
     else:
         
         return redirect('/')
-
+    1
 # Rota que receberá o formulário com o comentário
 
 @app.route('/post/comentarios', methods=['POST'])
