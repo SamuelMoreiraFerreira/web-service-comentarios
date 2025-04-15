@@ -1,20 +1,16 @@
-:root
+:root 
 {
-    --dark-green: #0b3d2e;
-    --light-green: #125943;
+    --color-bg: #00cc33;
 
-    --yellow: #f2c029;
+    --color-stars: #ffff99;
 
-    --light-brown: #eae0c8;
+    --color-title: #ffffff;
+    --color-subtitle: #ffff66;
+    --color-text: #ffffff;
 
-    --primary-font-color: #f5f5f5;
-    --secondary-font-color: #2c3e50;
-
-    --pollos-red: #E31937;
-    --gold-yellow: #FFC72C;
-    --fiery-orange: #F68B1F;
-    --rustic-brown: #5C3A21;
-    --pure-white: #FFFFFF;
-
-    --dark-theme-bg: #0F1A20; /* 121212 */
-}   
+    --color-btn-login: linear-gradient(#ffcc00, #cc9900);
+    --color-btn-register: linear-gradient(#66ccff, #3399ff);
+    
+    --color-border: #000000;
+    --color-shadow: rgba(0, 0, 0, 0.6);
+}

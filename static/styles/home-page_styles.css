@@ -1,280 +1,206 @@
 body 
 {
-    width: 100vw;
-    height: 100vh;
-}
+    margin: 0;
+    padding: 0;
 
-/* Header */
+    background-color: var(--color-bg);
+    background-image: url("/static/images/stars-tile.png");
+    background-repeat: repeat;
+
+    color: var(--color-text);
+}
 
 .page-header 
 {
-    width: 100%;
-    height: 12.5vh;
+    padding: 20px;
 
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
+    background-color: var(--color-bg);
 
-    padding: 0 5%;
+    text-align: center;
 
-    background-color: var(--gold-yellow);
-
-    color: #1A1A1A;
+    border-bottom: 4px double var(--color-border);
 }
 
 .page-header__logo img 
 {
-    width: auto;
-    max-height: 100%;
+    max-width: 150px;
 
-    padding: 0.5vh 0;
 
-    object-fit: cover;
+    filter: drop-shadow(0 0 10px var(--color-stars));
+}
+
+.page-header__nav 
+{
+    margin: 10px 0;
 }
 
 .page-header__menu-links 
 {
-    height: 100%;
-
-    display: flex;
-
     list-style: none;
 
-    font-weight: 600;
-    font-size: 1em;
-}
-
-.page-header__menu-links > li:hover
-{
-    background-color: #E6B422;
-}
-
-.page-header__menu-links a
-{
-    width: 100%;
-    height: 100%;
-
     display: flex;
-    align-items: center;
+    justify-content: center;
+    gap: 20px;
 
-    padding: 0 1.5em;
+    padding: 0;
 }
 
-/* Main */
+.page-header__menu-links li a 
+{
+    color: var(--color-subtitle);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.page-header__btn-logout 
+{
+    display: inline-block;
+
+    margin-top: 10px;
+    padding: 8px 15px;
+
+    background: var(--color-btn-register);
+
+    color: var(--color-title);
+    text-decoration: none;
+    font-weight: bold;
+
+    border: 2px outset var(--color-border);
+    border-radius: 8px;
+
+    box-shadow: 2px 2px 5px var(--color-shadow);
+}
 
 .page-main 
 {
-    position: relative;
-
-    width: 100%;
-    height: 87.5vh;
-
     display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    padding: 5% 2.5%;
-
-    background-color: var(--dark-theme-bg) ;
-
-    color: #FFF;
+    padding: 30px 15px;
 }
 
-.page-main__read-more
+.form__container 
 {
-    position: absolute;
-    bottom: 0;
-}
-
-.form__container
-{
-    position: relative;
-
     width: 100%;
-    height: 100%;
+    max-width: 380px;
 
-    margin: 0 2.5%;
+    margin: 20px;
+    padding: 20px;
 
-    border-width: 1px;
-    border-style: solid;
+    background-color: var(--color-bg);
+
+    border: 3px groove var(--color-border);
     border-radius: 12px;
 
-    background-color: #1E1E1E;
+    box-shadow: 3px 3px 8px var(--color-shadow);
 }
 
-.form__group
+.form__title 
 {
-    height: 85%;
+    display: block;
 
-    padding: 2rem;
-}
+    margin-bottom: 15px;
 
-.form-login
-{
-    border-color: var(--pollos-red);
-}
-
-.form-register
-{
-    border-color: var(--fiery-orange);
-}
-
-.form__title
-{
-    margin-bottom: 2rem;
-
-    color: #c2c2c2;
-
-    font-weight: bold;
-    font-size: 1.5em;
-
-    text-align: center;
+    color: var(--color-subtitle);
+    font-size: 1.5rem;
+    
+    text-shadow: 1px 1px var(--color-border);
 }
 
 .form__input 
 {
-    width: 100%;    
+    width: 100%;
 
-    margin-bottom: 1.25rem;
+    display: block;
 
-    padding: 1.25rem 1rem;
+    margin: 10px 0;
+    padding: 10px;
 
-    border: 1px solid #424242;
-    border-radius: 6px;
+    background-color: #fff;
 
-    background-color: #2D2D2D;
+    font-size: 1rem;
 
-    font-size: 1em;
+    border: 2px inset var(--color-border);
+    border-radius: 5px;
 }
 
-.form__input::placeholder
+.form__keep-session 
 {
-    color: #E0E0E0;
-}
-
-.form__keep-session
-{
-    display: flex;
-    gap: 10px;
-}
-
-.form__checkbox 
-{
-    width: 16px;
-    height: 16px;
-
-    accent-color: var(--pollos-red);
-
-    cursor: pointer;
-}
-  
-.form__label 
-{
-    color: #C2C2C2;
-    
     display: flex;
     align-items: center;
+    gap: 8px;
 
-    font-size: 1em;
-
-    cursor: pointer;
+    margin: 10px 0;
 }
-  
-.form__checkbox:hover 
+
+.form__label 
 {
-    opacity: 0.8;
+    font-size: 0.9rem;
 }
 
 .form__btn-login,
-.form__btn-register
+.form__btn-register 
 {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-
     width: 100%;
-    height: 15%;
 
-    color: #121212;
+    display: block;
 
-    font-weight: 800;
-    font-size: 1em;
-    text-transform: uppercase;
+    margin-top: 10px;
+    padding: 10px;
 
-    border: none;
-    border-radius: 0 0 12px 12px;
+    border: 3px outset var(--color-border);
+
+    color: #000;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-family: "Georgia", "Comic Sans MS", cursive, sans-serif;
 
     cursor: pointer;
 
-    transition: filter 0.3s ease;
+    text-shadow: 1px 1px #fff;
 }
 
-.form__btn-login:hover,
-.form__btn-register:hover
+.form__btn-login 
 {
-    filter: brightness(0.8);
+    background: var(--color-btn-login);
 }
 
-.form__btn-login
+.form__btn-register 
 {
-    background-color: var(--pollos-red);
+    background: var(--color-btn-register);
 }
 
-.form__btn-register
+.page-main__read-more 
 {
-    background-color: var(--fiery-orange);
+    margin-top: 20px;
+
+    color: var(--color-title);
+    font-family: "Brush Script MT", cursive;
+    font-size: 1.3rem;
+
+    text-shadow: 2px 2px var(--color-border);
 }
 
-/* Desktop */
+/* Responsividade */
 
-@media (min-width: 701px)
+@media (max-width: 600px) 
 {
-    body 
+    .page-header__menu-links 
     {
-        font-size: 20px;
-    }
-}
-
-/* Tablet */
-
-@media (max-width: 701px)
-{
-
-    .page-header__logo
-    {
-        display: none;
-    }
-
-    body 
-    {
-        font-size: 14px;
-    }
-
-    .page-main
-    {
-        height: 100vh;
-
-        padding: 5%;
-
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
     }
 
-    .form__container
+    .form__container 
     {
-        margin: 0;
-    }
-}
-
-/* Mobile */
-
-@media (max-width: 375px)
-{
-    body 
-    {
-        font-size: 12px;
+        width: 90%;
     }
 
-    .page-header
+    .form__btn-login,
+    .form__btn-register 
     {
-        justify-content: center;
+        font-size: 1rem;
     }
 }
