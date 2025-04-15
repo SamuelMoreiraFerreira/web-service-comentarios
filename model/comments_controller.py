@@ -125,3 +125,24 @@ class Comment:
         except:
 
             return []
+        
+    def get_last(user):
+
+        try:
+
+            conexao_db = Connection.create()
+
+            cursor = conexao_db.cursor(dictionary=True)
+
+            cursor.execute(f'SELECT {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["id"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["user"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["message"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["dt"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["likes"]} FROM {db_config["tb_comments"]["name"]} INNER JOIN {db_config["tb_users"]["name"]} ON {db_config["tb_comments"]["fields"]["user"]} = %s;', (user,))
+
+            last_comment = cursor.fetchone()
+
+            cursor.close()
+            conexao_db.close()
+
+            return last_comment
+
+        except:
+
+            return False
