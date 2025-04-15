@@ -134,7 +134,7 @@ class Comment:
 
             cursor = conexao_db.cursor(dictionary=True)
 
-            cursor.execute(f'SELECT {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["id"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["user"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["message"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["dt"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["likes"]} FROM {db_config["tb_comments"]["name"]} INNER JOIN {db_config["tb_users"]["name"]} ON {db_config["tb_comments"]["fields"]["user"]} = %s;', (user,))
+            cursor.execute(f'SELECT {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["id"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["user"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["message"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["dt"]}, {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["likes"]} FROM {db_config["tb_comments"]["name"]} WHERE {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["user"]} = %s ORDER BY {db_config["tb_comments"]["name"]}.{db_config["tb_comments"]["fields"]["id"]} DESC;', (user,))
 
             last_comment = cursor.fetchone()
 
