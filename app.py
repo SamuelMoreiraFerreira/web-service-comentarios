@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, jsonify
 
 from model.comments_controller import Comment
 from model.users_controller import User
@@ -13,6 +13,42 @@ app.secret_key = 'AlexStocco'
 def login_page():
 
     return render_template('home_page.html', is_login=('login' in session))
+
+# Página de comentários
+
+@app.route('/comments')
+def main_page():
+
+    if ('login' in session):
+        
+        return render_template('comments_page.html', 
+            comentarios=Comment.get_all()
+        )
+        
+    else:
+        
+        return redirect('/')
+    
+# Página do Heisenberg...
+
+@app.route('/heisenberg')
+def heisenberg_page():
+    
+    return render_template('heisenberg_page.html')
+
+@app.route('/api/get/messages')
+def api_get_messages():
+
+    messages = Comment.get_all()
+    return jsonify(messages) 
+
+@app.route('/api/get/lastmsg/<user>')
+def api_get_messages():
+
+    messages = Comment.get_all()
+    return jsonify(messages) 
+    
+#region Funcionalides - Usuários
 
 # Rota para Login
     
@@ -58,22 +94,11 @@ def logout():
     
     return redirect('/')
 
-# Página para cadastrar os comentários
-
-@app.route('/comments')
-def main_page():
-
-    if ('login' in session):
-        
-        return render_template('comments_page.html', 
-            comentarios=Comment.get_all()
-        )
-        
-    else:
-        
-        return redirect('/')
+#endregion
     
-# Rota que receberá o formulário com o comentário
+#region Funcionalidades - Comentários
+
+# Rota para criar comentários
 
 @app.route('/post/comentarios', methods=['POST'])
 def post_comentarios():
@@ -105,7 +130,7 @@ def post_delete_comentarios(id):
     else:
 
         return '<a href="/comments">Erro. Tente Novamente.</a>'
-    
+
 # Rota para like nos comentários
     
 @app.route('/post/like/<id>', methods=['POST'])
@@ -131,13 +156,8 @@ def post_dislike_comentarios(id):
     else:
 
         return '<a href="/comments">Erro. Tente Novamente.</a>'
-    
-# Heisenberg...
 
-@app.route('/heisenberg')
-def heisenberg_page():
-    
-    return render_template('heisenberg_page.html')
+#endregion
 
 if __name__ == '__main__':
     
