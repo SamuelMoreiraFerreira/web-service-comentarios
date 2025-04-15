@@ -25,6 +25,12 @@ CREATE TABLE IF NOT EXISTS tb_comments (
     REFERENCES tb_users(login)
 );
 
+-- USUÁRIO ADMIN
+
+CREATE USER 'app_prod_user'@'localhost' IDENTIFIED BY 'Xv8#dJ!3r@TqZ1wL9b$P';
+GRANT ALL PRIVILEGES ON db_feedbacks.* TO 'app_prod_user'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
 -- TRIGGER CRIPTOGRAFIA
 
 DELIMITER $$
