@@ -43,10 +43,13 @@ def api_get_messages():
     return jsonify(messages) 
 
 @app.route('/api/get/lastmsg/<user>')
-def api_get_messages():
+def api_get_last_message(user):
 
-    messages = Comment.get_all()
-    return jsonify(messages) 
+    message = Comment.get_last(user)
+
+    print(message)
+
+    return jsonify(message) 
     
 #region Funcionalides - Usuários
 
@@ -105,10 +108,9 @@ def post_comentarios():
 
     # Exportando as informações do formulário
 
-    user = request.form.get('input-user')
     message = request.form.get('input-message')
 
-    if Comment.create(user, message):
+    if 'login' in session and Comment.create(session['login'], message):
 
         # Redirecionando de volta
 
