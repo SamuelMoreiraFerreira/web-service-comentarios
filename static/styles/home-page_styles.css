@@ -120,6 +120,7 @@ body
 
     background-color: #fff;
 
+    color: var(--color-text-input);
     font-size: 1rem;
 
     border: 2px inset var(--color-border);

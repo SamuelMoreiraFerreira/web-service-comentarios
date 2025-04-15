@@ -7,6 +7,7 @@
     --color-title: #ffffff;
     --color-subtitle: #ffff66;
     --color-text: #ffffff;
+    --color-text-input: #000000;
 
     --color-btn-login: linear-gradient(#ffcc00, #cc9900);
     --color-btn-register: linear-gradient(#66ccff, #3399ff);
