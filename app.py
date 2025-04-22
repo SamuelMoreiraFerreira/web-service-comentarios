@@ -35,22 +35,7 @@ def main_page():
 def heisenberg_page():
     
     return render_template('heisenberg_page.html')
-
-@app.route('/api/get/messages')
-def api_get_messages():
-
-    messages = Comment.get_all()
-    return jsonify(messages) 
-
-@app.route('/api/get/lastmsg/<user>')
-def api_get_last_message(user):
-
-    message = Comment.get_last(user)
-
-    print(message)
-
-    return jsonify(message) 
-    
+                           
 #region Funcionalides - Usuários
 
 # Rota para Login
