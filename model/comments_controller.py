@@ -1,5 +1,4 @@
 from data.connection_controller import Connection
-import datetime
 
 # DB Configuração JSON
 

@@ -37,13 +37,13 @@ class User:
 
             # Criptografa a senha inserida pelo usuário com o salt e verifica se corresponde à armazenada relacionada a conta
 
-            if (not user or sha256((password + user[db_config["tb_users"]["fields"]["salt_password"]]).encode()).hexdigest() == user[db_config["tb_users"]["fields"]["password"]]):
+            if (not user or sha256((password + user[db_config["tb_users"]["fields"]["salt_password"]]).encode()).hexdigest() != user[db_config["tb_users"]["fields"]["password"]]):
 
-                return True
+                return False
             
             else:
 
-                return False
+                return True
 
         except:
             

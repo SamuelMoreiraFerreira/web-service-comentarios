@@ -1,6 +1,9 @@
 :root 
 {
+    font-size: 62.5%;
+
     --color-bg: #00cc33;
+    --color-bg-nav: #ff3399;
 
     --color-stars: #ffff99;
 

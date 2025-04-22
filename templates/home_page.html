@@ -9,8 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/color-pallete.css') }}" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/reset.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/page-header_styles.css') }}">
 
     <!-- Estilização da Página -->
 
@@ -26,9 +25,9 @@
 
             <ul class="page-header__menu-links">
 
-                <li><a href="#">Entrar</a></li>
+                <li><a href="/">Entrar</a></li>
 
-                <li><a href="#" 
+                <li><a href="/comments" 
                     {% if not is_login %}
 
                     aria-disabled="true"
@@ -38,7 +37,7 @@
                     aria-disabled="true"
                 >Comentários</a></li>
 
-                <li><a href="#">Doações</a></li>
+                <li><a href="/">Doações</a></li>
 
             </ul>
 

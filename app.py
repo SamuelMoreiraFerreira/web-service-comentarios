@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, jsonify
+from flask import Flask, render_template, request, redirect, session
 
 from model.comments_controller import Comment
 from model.users_controller import User
@@ -22,7 +22,7 @@ def main_page():
     if ('login' in session):
         
         return render_template('comments_page.html', 
-            comentarios=Comment.get_all()
+            comments=Comment.get_all()
         )
         
     else:
